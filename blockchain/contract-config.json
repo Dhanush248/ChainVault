@@ -1,0 +1,141 @@
+{
+  "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "chainId": 31337,
+  "abi": [
+    {
+      "inputs": [
+        {"internalType": "string", "name": "fileHash", "type": "string"},
+        {"internalType": "string", "name": "fileName", "type": "string"},
+        {"internalType": "uint256", "name": "fileSize", "type": "uint256"},
+        {"internalType": "string[]", "name": "fragmentHashes", "type": "string[]"},
+        {"internalType": "uint256[]", "name": "fragmentSizes", "type": "uint256[]"}
+      ],
+      "name": "registerFile",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string", "name": "fileHash", "type": "string"},
+        {"internalType": "address", "name": "userAddress", "type": "address"}
+      ],
+      "name": "grantAccess",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string", "name": "fileHash", "type": "string"},
+        {"internalType": "address", "name": "userAddress", "type": "address"}
+      ],
+      "name": "revokeAccess",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string", "name": "fileHash", "type": "string"}
+      ],
+      "name": "getFileMetadata",
+      "outputs": [
+        {
+          "components": [
+            {"internalType": "string", "name": "fileHash", "type": "string"},
+            {"internalType": "address", "name": "owner", "type": "address"},
+            {"internalType": "uint256", "name": "timestamp", "type": "uint256"},
+            {"internalType": "uint256", "name": "fileSize", "type": "uint256"},
+            {"internalType": "string", "name": "fileName", "type": "string"},
+            {"internalType": "bool", "name": "exists", "type": "bool"},
+            {"internalType": "uint256[]", "name": "fragmentIds", "type": "uint256[]"}
+          ],
+          "internalType": "struct TrustAwareStorage.FileMetadata",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string", "name": "fileHash", "type": "string"},
+        {"internalType": "address", "name": "userAddress", "type": "address"}
+      ],
+      "name": "hasFileAccess",
+      "outputs": [
+        {"internalType": "bool", "name": "", "type": "bool"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTrustedNodes",
+      "outputs": [
+        {"internalType": "address[]", "name": "", "type": "address[]"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "address", "name": "", "type": "address"}
+      ],
+      "name": "storageNodes",
+      "outputs": [
+        {"internalType": "address", "name": "nodeAddress", "type": "address"},
+        {"internalType": "uint256", "name": "trustScore", "type": "uint256"},
+        {"internalType": "uint256", "name": "totalStored", "type": "uint256"},
+        {"internalType": "uint256", "name": "successfulRetrievals", "type": "uint256"},
+        {"internalType": "uint256", "name": "failedRetrievals", "type": "uint256"},
+        {"internalType": "bool", "name": "isActive", "type": "bool"},
+        {"internalType": "uint256", "name": "lastActivity", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string", "name": "fileHash", "type": "string"}
+      ],
+      "name": "recordFileAccess",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {"indexed": true, "internalType": "string", "name": "fileHash", "type": "string"},
+        {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+        {"indexed": false, "internalType": "string", "name": "fileName", "type": "string"},
+        {"indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256"}
+      ],
+      "name": "FileUploaded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {"indexed": true, "internalType": "string", "name": "fileHash", "type": "string"},
+        {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+        {"indexed": true, "internalType": "address", "name": "grantedTo", "type": "address"}
+      ],
+      "name": "AccessGranted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {"indexed": true, "internalType": "string", "name": "fileHash", "type": "string"},
+        {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+        {"indexed": true, "internalType": "address", "name": "revokedFrom", "type": "address"}
+      ],
+      "name": "AccessRevoked",
+      "type": "event"
+    }
+  ]
+}
